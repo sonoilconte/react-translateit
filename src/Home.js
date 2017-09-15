@@ -29,7 +29,7 @@ class Home extends Component {
         <div className="row">
           <div className="col s12">
             <div className="center-align">
-              <Link to={"/myaccount"} className="waves-effect waves-light btn">Sign up and start translating</Link>
+              <a onClick={this.toggleSignUp} className="waves-effect waves-light btn">Sign up and start translating</a>
             </div>
           </div>
         </div>
