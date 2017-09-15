@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import OrigFullText from './OrigFullText';
+import TranslationFullText from './TranslationFullText';
 
 class ShowOneContainer extends Component {
   render(){
     return(
       <div className="container">
         <div className="row">
-          <h1>SHOW ONE CONTAINER</h1>
           <OrigFullText/>
+          <TranslationFullText/>
         </div>
       </div>
     );

@@ -9,6 +9,6 @@ export default (
   <div>
     <Route path='/' component={Home}/>
     <Route path='/mytexts' component={MyTextsContainer}/>
-    <Route path='/mytexts/showone' component={ShowOneContainer}/>
+    <Route path='/texts/showone' component={ShowOneContainer}/>
   </div>
 );
