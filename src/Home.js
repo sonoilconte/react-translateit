@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
-import Header from './Header'
+import Header from './Header';
+import SignUp from './SignUp';
 
 
 class Home extends Component {
@@ -21,6 +22,8 @@ class Home extends Component {
             </div>
           </div>
         </div>
+
+        <SignUp/>
 
         <div className="row">
           <div className="col s12">
