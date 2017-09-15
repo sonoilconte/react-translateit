@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 
 class SignUp extends Component {
   render(){
+
+    if(this.props.isSignUpShowing === false){
+      return null;
+    }
+
     return(
       <div className="row">
         <div className="col m6 offset-m3">

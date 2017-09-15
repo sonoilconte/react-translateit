@@ -5,6 +5,17 @@ import SignUp from './SignUp';
 
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isSignUpShowing: false
+    }
+  }
+
+  toggleSignUp = () => {
+    this.setState({isSignUpShowing: !this.state.isSignUpShowing});
+  }
+
   render(){
     return(
       <div className="container">
@@ -23,7 +34,7 @@ class Home extends Component {
           </div>
         </div>
 
-        <SignUp/>
+        <SignUp isSignUpShowing={this.state.isSignUpShowing}/>
 
         <div className="row">
           <div className="col s12">
