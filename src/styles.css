@@ -5,3 +5,10 @@
 body {
   /*background-color: pink;*/
 }
+
+/* Styles for Video Scroller in ShowOneContainer */
+.scroller-outer {width: 800px; height: 335px; overflow: scroll;}
+.scroller-inner {width: 10000px}
+.video {float:left;}
+.scroller-outer::-webkit-scrollbar{width: 6px; background-color: #F5F5F5;}
+.scroller-outer::-webkit-scrollbar-thumb{background: #000000;}

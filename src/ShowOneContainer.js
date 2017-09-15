@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import OrigFullText from './OrigFullText';
 import TranslationFullText from './TranslationFullText';
+import Videos from './Videos';
 
 class ShowOneContainer extends Component {
   render(){
@@ -10,6 +11,7 @@ class ShowOneContainer extends Component {
           <OrigFullText/>
           <TranslationFullText/>
         </div>
+        <Videos/>
       </div>
     );
   }
