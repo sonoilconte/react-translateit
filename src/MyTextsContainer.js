@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import TextCard from './TextCard';
 
 class MyTextsContainer extends Component {
   render(){
     return(
       <div className="container">
+        <Header/>
         <div className="row">
           <div className="col s12">
             <div className="left-align">
