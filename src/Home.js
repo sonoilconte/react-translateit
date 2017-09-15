@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
 import Header from './Header'
+
 
 class Home extends Component {
   render(){
@@ -15,7 +17,7 @@ class Home extends Component {
         <div className="row">
           <div className="col s12">
             <div className="center-align">
-              <a href="#" className="waves-effect waves-light btn">Sign up and start translating</a>
+              <Link to={"/myaccount"} className="waves-effect waves-light btn">Sign up and start translating</Link>
             </div>
           </div>
         </div>
@@ -23,7 +25,7 @@ class Home extends Component {
         <div className="row">
           <div className="col s12">
             <div className="center-align">
-              <a href="#" className="waves-effect waves-light btn">Log in</a>
+              <Link to={"/myaccount"} className="waves-effect waves-light btn">Log in</Link>
             </div>
           </div>
         </div>
@@ -31,7 +33,7 @@ class Home extends Component {
         <div className="row">
           <div className="col s12">
             <div className="center-align">
-              <a href="#" className="waves-effect waves-light btn">See what humans are translating</a>
+              <Link to={"/mytexts"} className="waves-effect waves-light btn">See what humans are translating</Link>
             </div>
           </div>
         </div>
