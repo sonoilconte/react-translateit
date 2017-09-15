@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TextCard from './TextCard';
 
 class MyTextsContainer extends Component {
   render(){
@@ -17,9 +18,7 @@ class MyTextsContainer extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col s12">
-            <p>Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.Text cards will go here.</p>
-          </div>
+          <TextCard/><TextCard/><TextCard/><TextCard/><TextCard/><TextCard/>
         </div>
       </div>
     );
