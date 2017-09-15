@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import TextCard from './TextCard';
+import Footer from './Footer';
 
 class MyTextsContainer extends Component {
   render(){
@@ -22,6 +23,7 @@ class MyTextsContainer extends Component {
         <div className="row">
           <TextCard/><TextCard/><TextCard/><TextCard/><TextCard/><TextCard/>
         </div>
+        <Footer/>
       </div>
     );
   }
