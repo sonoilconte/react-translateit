@@ -2,18 +2,23 @@ import React, { Component } from 'react';
 import {Link} from 'react-router';
 import Header from './Header';
 import SignUp from './SignUp';
+import LogIn from './LogIn';
 
 
 class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isSignUpShowing: false
+      isSignUpShowing: false,
+      isLogInShowing: false
     }
   }
 
   toggleSignUp = () => {
-    this.setState({isSignUpShowing: !this.state.isSignUpShowing});
+    this.setState({ isSignUpShowing: !this.state.isSignUpShowing });
+  }
+  toggleLogIn = () => {
+    this.setState({ isLogInShowing: !this.state.isLogInShowing });
   }
 
   render(){
@@ -39,10 +44,12 @@ class Home extends Component {
         <div className="row">
           <div className="col s12">
             <div className="center-align">
-              <Link to={"/myaccount"} className="waves-effect waves-light btn">Log in</Link>
+              <a onClick={this.toggleLogIn} className="waves-effect waves-light btn">Log in</a>
             </div>
           </div>
         </div>
+
+        <LogIn isLogInShowing={this.state.isLogInShowing}/>
 
         <div className="row">
           <div className="col s12">
