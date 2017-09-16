@@ -38,8 +38,20 @@ class SignUp extends Component {
       }
     }).then((res) => {
       console.log(res);
+      this.setState({
+        email: "",
+        username: "",
+        password: "",
+        passwordConfirm: ""
+      });
     }, (err) => {
       console.log("ERROR CREATING USER");
+      this.setState({
+        email: "",
+        username: "",
+        password: "",
+        passwordConfirm: ""
+      });
     });
   }
 
@@ -59,11 +71,11 @@ class SignUp extends Component {
                 <label for="email">Email</label>
                 <input onChange={event => this.onInputChangeEmail(event)} value={this.state.email} type="text" name="email" required></input>
                 <label for="username">Username</label>
-                <input onChange={event => this.onInputChangeUsername(event)} type="text" name="username" required></input>
+                <input onChange={event => this.onInputChangeUsername(event)} value={this.state.username} type="text" name="username" required></input>
                 <label for="password">Password</label>
-                <input onChange={event => this.onInputChangePassword(event)} type="password" name="password" required></input>
+                <input onChange={event => this.onInputChangePassword(event)} value={this.state.password} type="password" name="password" required></input>
                 <label for="password-confirm">Confirm Password</label>
-                <input onChange={event => this.onInputChangePasswordConfirm(event)} type="password" name="password-confirm" required></input>
+                <input onChange={event => this.onInputChangePasswordConfirm(event)} value={this.state.passwordConfirm} type="password" name="password-confirm" required></input>
                 <button onClick={this.handleSignUpSubmit} type="submit" className="btn waves-effect waves-light" name="submit">Submit</button>
               </form>
             </div>
