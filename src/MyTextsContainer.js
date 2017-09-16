@@ -1,10 +1,37 @@
 import React, { Component } from 'react';
+import $ from 'jquery-ajax';
 import Header from './Header';
 import TextCard from './TextCard';
 import Footer from './Footer';
 
 class MyTextsContainer extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      myTexts: []
+    }
+  }
+
+  loadMyTexts = () => {
+    $.ajax({
+      method: "GET",
+      url: "https://frozen-mesa-86739.herokuapp.com/users/59ba129bcc1a1d0008df9099/texts"
+    })
+    .then((res) => { this.setState({myTexts: res}); console.log(res);},
+      (err) => { console.log("ERROR", err); }
+    );
+  }
+
+  componentDidMount = () => {
+    this.loadMyTexts();
+  }
+
   render(){
+    let textCards = this.state.myTexts.map(text => {
+      return(
+        <TextCard text={text}/>
+      )
+    });
     return(
       <div className="container">
         <Header/>
@@ -21,7 +48,7 @@ class MyTextsContainer extends Component {
           </div>
         </div>
         <div className="row">
-          <TextCard/><TextCard/><TextCard/><TextCard/><TextCard/><TextCard/>
+          {textCards}
         </div>
         <Footer/>
       </div>

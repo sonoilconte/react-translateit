@@ -9,12 +9,12 @@ class TextCard extends Component {
           <div className="card-content">
             <div className="row">
               <div className="col s12">
-                <h4>Title and Author</h4>
+                <h4>{this.props.text.title}, by {this.props.text.author}</h4>
               </div>
             </div>
             <div className="row">
               <div className="col s12">
-                text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-text-tease-
+                {this.props.text.body}
               </div>
             </div>
             <div className="row">

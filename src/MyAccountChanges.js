@@ -4,7 +4,7 @@ class MyAccountChanges extends Component {
   render(){
     return(
       <div className="row">
-        <div className="col m6">
+        <div className="col m9">
           <h2>My Account</h2>
           <div className="card">
             <div className="card-content">
