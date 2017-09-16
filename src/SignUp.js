@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 
 class SignUp extends Component {
+  constructor(){
+    super();
+    this.state = {
+      email: "",
+      username: "",
+      password: ""
+    }
+  }
+
+  onInputChangeEmail = (event) => {
+    this.setState({email: event.target.value});
+  }
+
   render(){
 
     if(this.props.isSignUpShowing === false){
@@ -15,7 +28,7 @@ class SignUp extends Component {
               <h2>Sign up</h2>
               <form className="" action="index.html" method="post">
                 <label for="email">Email</label>
-                <input type="text" name="email" value="" required></input>
+                <input onChange={event => this.onInputChangeEmail(event)} value={this.state.email} type="text" name="email"  required></input>
                 <label for="username">Username</label>
                 <input type="text" name="username" value="" required></input>
 
