@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import $ from 'jquery-ajax';
+let domainName = 'https://frozen-mesa-86739.herokuapp.com' || 'http://localhost:3001';
 
 class SignUp extends Component {
   constructor(){
@@ -24,6 +26,23 @@ class SignUp extends Component {
     this.setState({passwordConfirm: event.target.value});
   }
 
+  handleSignUpSubmit = (event) => {
+    event.preventDefault();
+    $.ajax({
+      method: "POST",
+      url: domainName + "/users",
+      data: {
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password
+      }
+    }).then((res) => {
+      console.log(res);
+    }, (err) => {
+      console.log("ERROR CREATING USER");
+    });
+  }
+
   render(){
 
     if(this.props.isSignUpShowing === false){
@@ -39,17 +58,13 @@ class SignUp extends Component {
               <form className="" action="index.html" method="post">
                 <label for="email">Email</label>
                 <input onChange={event => this.onInputChangeEmail(event)} value={this.state.email} type="text" name="email" required></input>
-
                 <label for="username">Username</label>
                 <input onChange={event => this.onInputChangeUsername(event)} type="text" name="username" required></input>
-
                 <label for="password">Password</label>
                 <input onChange={event => this.onInputChangePassword(event)} type="password" name="password" required></input>
-
                 <label for="password-confirm">Confirm Password</label>
                 <input onChange={event => this.onInputChangePasswordConfirm(event)} type="password" name="password-confirm" required></input>
-
-                <button type="submit" className="btn waves-effect waves-light" name="submit">Submit</button>
+                <button onClick={this.handleSignUpSubmit} type="submit" className="btn waves-effect waves-light" name="submit">Submit</button>
               </form>
             </div>
           </div>
