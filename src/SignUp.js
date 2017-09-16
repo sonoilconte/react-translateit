@@ -6,12 +6,22 @@ class SignUp extends Component {
     this.state = {
       email: "",
       username: "",
-      password: ""
+      password: "",
+      passwordConfirm: ""
     }
   }
 
   onInputChangeEmail = (event) => {
     this.setState({email: event.target.value});
+  }
+  onInputChangeUsername = (event) => {
+    this.setState({username: event.target.value});
+  }
+  onInputChangePassword = (event) => {
+    this.setState({password: event.target.value});
+  }
+  onInputChangePasswordConfirm = (event) => {
+    this.setState({passwordConfirm: event.target.value});
   }
 
   render(){
@@ -28,15 +38,16 @@ class SignUp extends Component {
               <h2>Sign up</h2>
               <form className="" action="index.html" method="post">
                 <label for="email">Email</label>
-                <input onChange={event => this.onInputChangeEmail(event)} value={this.state.email} type="text" name="email"  required></input>
+                <input onChange={event => this.onInputChangeEmail(event)} value={this.state.email} type="text" name="email" required></input>
+
                 <label for="username">Username</label>
-                <input type="text" name="username" value="" required></input>
+                <input onChange={event => this.onInputChangeUsername(event)} type="text" name="username" required></input>
 
                 <label for="password">Password</label>
-                <input type="password" name="password" value="" required></input>
+                <input onChange={event => this.onInputChangePassword(event)} type="password" name="password" required></input>
 
                 <label for="password-confirm">Confirm Password</label>
-                <input type="password" name="password-confirm" value="" required></input>
+                <input onChange={event => this.onInputChangePasswordConfirm(event)} type="password" name="password-confirm" required></input>
 
                 <button type="submit" className="btn waves-effect waves-light" name="submit">Submit</button>
               </form>
