@@ -6,10 +6,8 @@ import Footer from './Footer';
 class MyAccountContainer extends Component {
   render(){
     return(
-      <div className="container">
-        <Header/>
+      <div>
         <MyAccountChanges/>
-        <Footer/>
       </div>
     );
   }

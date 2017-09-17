@@ -7,7 +7,6 @@ import MyTextsContainer from './MyTextsContainer';
 import ShowOneContainer from './ShowOneContainer';
 import Footer from './Footer';
 
-
 class Home extends Component {
   constructor(props){
     super(props);
@@ -26,7 +25,7 @@ class Home extends Component {
 
   render(){
     return(
-      <div className="container">
+      <div>
         <div className="row">
           <div className="col s12">
             <h1 className="center-align">TranslateIt</h1>
@@ -63,12 +62,6 @@ class Home extends Component {
             </div>
           </div>
         </div>
-
-        <Header/>
-        <MyTextsContainer/>
-        <ShowOneContainer/>
-        <Footer/>
-
       </div>
     );
   }
