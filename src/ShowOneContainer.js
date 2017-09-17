@@ -68,9 +68,7 @@ class ShowOneContainer extends Component {
 
   render(){
     return(
-      <div className="container">
-        <Header/>
-
+      <div>
         <div className="row">
           <OrigFullText currentOrigText={this.state.currentOrigText}
           />
@@ -81,7 +79,6 @@ class ShowOneContainer extends Component {
           />
         </div>
         <Videos/>
-        <Footer/>
       </div>
     );
   }

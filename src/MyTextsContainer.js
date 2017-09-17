@@ -34,8 +34,7 @@ class MyTextsContainer extends Component {
       )
     });
     return(
-      <div className="container">
-        <Header/>
+      <div>
         <div className="row">
           <div className="col s12">
             <div className="left-align">
@@ -51,7 +50,6 @@ class MyTextsContainer extends Component {
         <div className="row">
           {textCards}
         </div>
-        <Footer/>
       </div>
     );
   }

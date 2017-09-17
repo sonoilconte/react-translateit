@@ -3,6 +3,9 @@ import {Link} from 'react-router';
 import Header from './Header';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
+import MyTextsContainer from './MyTextsContainer';
+import ShowOneContainer from './ShowOneContainer';
+import Footer from './Footer';
 
 
 class Home extends Component {
@@ -24,7 +27,6 @@ class Home extends Component {
   render(){
     return(
       <div className="container">
-        <Header/>
         <div className="row">
           <div className="col s12">
             <h1 className="center-align">TranslateIt</h1>
@@ -58,6 +60,11 @@ class Home extends Component {
             </div>
           </div>
         </div>
+
+        <Header/>
+        <MyTextsContainer/>
+        <ShowOneContainer/>
+        <Footer/>
 
       </div>
     );
