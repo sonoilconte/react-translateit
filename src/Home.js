@@ -34,6 +34,13 @@ class Home extends Component {
         <SignUp
           isSignUpShowing={this.props.isSignUpShowing}
           toggleSignUp={this.props.toggleSignUp}
+          onInputChangeUsername={this.props.onInputChangeUsername}
+          onInputChangePassword={this.props.onInputChangePassword}
+          onInputChangePasswordConfirm={this.props.onInputChangePasswordConfirm}
+          handleSignUpSubmit={this.props.handleSignUpSubmit}
+          username={this.props.username}
+          password={this.props.password}
+          passwordConfirm={this.props.passwordConfirm}
         />
 
         <div className="row">
