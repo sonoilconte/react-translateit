@@ -41,7 +41,10 @@ class Home extends Component {
           </div>
         </div>
 
-        <SignUp isSignUpShowing={this.state.isSignUpShowing}/>
+        <SignUp
+          isSignUpShowing={this.state.isSignUpShowing}
+          toggleSignUp={this.toggleSignUp}
+        />
 
         <div className="row">
           <div className="col s12">

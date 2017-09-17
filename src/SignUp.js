@@ -6,16 +6,13 @@ class SignUp extends Component {
   constructor(){
     super();
     this.state = {
-      email: "",
       username: "",
       password: "",
-      passwordConfirm: ""
+      passwordConfirm: "",
+      isLoggedIn: false
     }
   }
 
-  onInputChangeEmail = (event) => {
-    this.setState({email: event.target.value});
-  }
   onInputChangeUsername = (event) => {
     this.setState({username: event.target.value});
   }
@@ -30,24 +27,23 @@ class SignUp extends Component {
     event.preventDefault();
     $.ajax({
       method: "POST",
-      url: domainName + "/users",
+      url: domainName + "/signup",
       data: {
-        email: this.state.email,
         username: this.state.username,
         password: this.state.password
       }
     }).then((res) => {
       console.log(res);
+      this.props.toggleSignUp();
       this.setState({
-        email: "",
         username: "",
         password: "",
-        passwordConfirm: ""
+        passwordConfirm: "",
+        isLoggedIn: true
       });
     }, (err) => {
       console.log("ERROR CREATING USER");
       this.setState({
-        email: "",
         username: "",
         password: "",
         passwordConfirm: ""
@@ -68,8 +64,6 @@ class SignUp extends Component {
             <div className="card-content">
               <h2>Sign up</h2>
               <form className="" action="index.html" method="post">
-                <label for="email">Email</label>
-                <input onChange={event => this.onInputChangeEmail(event)} value={this.state.email} type="text" name="email" required></input>
                 <label for="username">Username</label>
                 <input onChange={event => this.onInputChangeUsername(event)} value={this.state.username} type="text" name="username" required></input>
                 <label for="password">Password</label>
