@@ -45,7 +45,7 @@ class Home extends Component {
         </div>
 
         <LogIn
-          isLogInShowing={this.state.isLogInShowing}
+          isLogInShowing={this.props.isLogInShowing}
           toggleLogIn={this.props.toggleLogIn}
         />
 
