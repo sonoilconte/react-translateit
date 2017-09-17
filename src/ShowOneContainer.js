@@ -55,8 +55,15 @@ class ShowOneContainer extends Component {
     this.loadTextGroup();
   }
 
-  handleLangSelect = () => {
-    console.log("clicked on a language");
+  handleLangSelect = (event) => {
+    event.preventDefault();
+    let textId = $(event.target).data("text-id");
+    console.log("text id clicked", textId);
+    let availTranslations = this.state.textGroup;
+    let newSelectedTranslation = availTranslations.filter((text) => {
+      return(text._id === textId);
+    });
+    this.setState({selectedTranslation: newSelectedTranslation[0]});
   }
 
   render(){
@@ -65,7 +72,8 @@ class ShowOneContainer extends Component {
         <Header/>
 
         <div className="row">
-          <OrigFullText currentOrigText={this.state.currentOrigText}/>
+          <OrigFullText currentOrigText={this.state.currentOrigText}
+          />
           <TranslationFullText
             textGroup={this.state.textGroup}
             selectedTranslation={this.state.selectedTranslation}

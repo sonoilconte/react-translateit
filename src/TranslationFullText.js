@@ -5,7 +5,7 @@ class TranslationFullText extends Component {
   render(){
     let languageButtons = this.props.textGroup.map(text => {
       return(
-        <button type="button" name="button" data-text-id={text.id} onClick={this.props.handleLangSelect}>{text.lang}</button>
+        <button type="button" name="button" data-text-id={text._id} onClick={this.props.handleLangSelect}>{text.lang}</button>
       )
     })
 
@@ -22,9 +22,6 @@ class TranslationFullText extends Component {
             {this.props.selectedTranslation.body}
           </div>
           {languageButtons}
-          <button type="button" name="button">German</button>
-          <button type="button" name="button">French</button>
-          <button type="button" name="button">Mandarin</button>
         </div>
     );
   }
