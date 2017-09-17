@@ -74,6 +74,30 @@ class BodyContainer extends Component {
   logInPasswordChange = (event) => {
     this.setState({logInPassword: event.target.value})
   }
+  handleLogInSubmit = (event) => {
+    event.preventDefault();
+    $.ajax({
+      method: "POST",
+      url: domainName + "/login",
+      data: {
+        username: this.state.logInUsername,
+        password: this.state.logInPassword
+      }
+    }).then((res) => {
+      console.log("LOGGING IN USER",res);
+      this.toggleLogIn();
+      this.setState({
+        logInUsername: "",
+        logInPassword: ""
+      });
+    }, (err) => {
+      console.log("ERROR LOGGING IN");
+      this.setState({
+        logInUsername: "",
+        logInPassword: ""
+      });
+    });
+  }
 
   render(){
     return(
@@ -85,9 +109,9 @@ class BodyContainer extends Component {
           onInputChangePassword={this.onInputChangePassword}
           onInputChangePasswordConfirm={this.onInputChangePasswordConfirm}
           handleSignUpSubmit={this.handleSignUpSubmit}
-          username={this.props.username}
-          password={this.props.password}
-          passwordConfirm={this.props.passwordConfirm}
+          username={this.state.username}
+          password={this.state.password}
+          passwordConfirm={this.state.passwordConfirm}
 
           isLogInShowing={this.state.isLogInShowing}
           toggleLogIn={this.toggleLogIn}
@@ -95,6 +119,7 @@ class BodyContainer extends Component {
           logInPasswordChange={this.logInPasswordChange}
           logInUsername={this.state.logInUsername}
           logInPassword={this.state.logInPassword}
+          handleLogInSubmit={this.handleLogInSubmit}
 
         />
         <Header/>
