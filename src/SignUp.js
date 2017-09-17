@@ -9,7 +9,6 @@ class SignUp extends Component {
       username: "",
       password: "",
       passwordConfirm: "",
-      isLoggedIn: false
     }
   }
 
@@ -38,8 +37,7 @@ class SignUp extends Component {
       this.setState({
         username: "",
         password: "",
-        passwordConfirm: "",
-        isLoggedIn: true
+        passwordConfirm: ""
       });
     }, (err) => {
       console.log("ERROR CREATING USER");
