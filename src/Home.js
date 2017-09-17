@@ -11,16 +11,7 @@ class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isSignUpShowing: false,
-      isLogInShowing: false
     }
-  }
-
-  toggleSignUp = () => {
-    this.setState({ isSignUpShowing: !this.state.isSignUpShowing });
-  }
-  toggleLogIn = () => {
-    this.setState({ isLogInShowing: !this.state.isLogInShowing });
   }
 
   render(){
@@ -35,25 +26,28 @@ class Home extends Component {
         <div className="row">
           <div className="col s12">
             <div className="center-align">
-              <a onClick={this.toggleSignUp} className="waves-effect waves-light btn">Sign up and start translating</a>
+              <a onClick={this.props.toggleSignUp} className="waves-effect waves-light btn">Sign up and start translating</a>
             </div>
           </div>
         </div>
 
         <SignUp
-          isSignUpShowing={this.state.isSignUpShowing}
-          toggleSignUp={this.toggleSignUp}
+          isSignUpShowing={this.props.isSignUpShowing}
+          toggleSignUp={this.props.toggleSignUp}
         />
 
         <div className="row">
           <div className="col s12">
             <div className="center-align">
-              <a onClick={this.toggleLogIn} className="waves-effect waves-light btn">Log in</a>
+              <a onClick={this.props.toggleLogIn} className="waves-effect waves-light btn">Log in</a>
             </div>
           </div>
         </div>
 
-        <LogIn isLogInShowing={this.state.isLogInShowing}/>
+        <LogIn
+          isLogInShowing={this.state.isLogInShowing}
+          toggleLogIn={this.props.toggleLogIn}
+        />
 
         <div className="row">
           <div className="col s12">

@@ -12,22 +12,27 @@ class BodyContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      // isSignUpShowing: false,
-      // isLogInShowing: false
+      isSignUpShowing: false,
+      isLogInShowing: false
     }
   }
 
-  // toggleSignUp = () => {
-  //   this.setState({ isSignUpShowing: !this.state.isSignUpShowing });
-  // }
-  // toggleLogIn = () => {
-  //   this.setState({ isLogInShowing: !this.state.isLogInShowing });
-  // }
+  toggleSignUp = () => {
+    this.setState({ isSignUpShowing: !this.state.isSignUpShowing });
+  }
+  toggleLogIn = () => {
+    this.setState({ isLogInShowing: !this.state.isLogInShowing });
+  }
 
   render(){
     return(
       <div className="container">
-        <Home/>
+        <Home
+          toggleSignUp={this.toggleSignUp}
+          toggleLogIn={this.toggleLogIn}
+          isSignUpShowing={this.state.isSignUpShowing}
+          isLogInShowing={this.state.isLogInShowing}
+        />
         <Header/>
         <MyTextsContainer/>
         <ShowOneContainer/>
