@@ -54,6 +54,10 @@ class Home extends Component {
         <LogIn
           isLogInShowing={this.props.isLogInShowing}
           toggleLogIn={this.props.toggleLogIn}
+          logInUsernameChange={this.props.logInUsernameChange}
+          logInPasswordChange={this.props.logInPasswordChange}
+          logInUsername={this.props.logInUsername}
+          logInPassword={this.props.logInPassword}
         />
 
         <div className="row">

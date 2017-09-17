@@ -13,9 +13,9 @@ class LogIn extends Component {
               <h2>Log in</h2>
               <form className="" action="index.html" method="post">
                 <label for="username">Username</label>
-                <input type="text" name="username" value="" required></input>
+                <input onChange={event => this.props.logInUsernameChange(event)} value={this.props.logInUsername} type="text" name="username" required></input>
                 <label for="password">Password</label>
-                <input type="password" name="password" value="" required></input>
+                <input onChange={event => this.props.logInPasswordChange(event)} value={this.props.logInPassword} type="password" name="password" required></input>
                 <button type="submit" className="btn waves-effect waves-light" name="submit">Submit</button>
               </form>
             </div>

@@ -20,6 +20,8 @@ class BodyContainer extends Component {
       username: "",
       password: "",
       passwordConfirm: "",
+      logInUsername: "",
+      logInPassword: ""
     }
   }
 
@@ -66,14 +68,19 @@ class BodyContainer extends Component {
     });
   }
 
+  logInUsernameChange = (event) => {
+    this.setState({logInUsername: event.target.value});
+  }
+  logInPasswordChange = (event) => {
+    this.setState({logInPassword: event.target.value})
+  }
+
   render(){
     return(
       <div className="container">
         <Home
           isSignUpShowing={this.state.isSignUpShowing}
-          isLogInShowing={this.state.isLogInShowing}
           toggleSignUp={this.toggleSignUp}
-          toggleLogIn={this.toggleLogIn}
           onInputChangeUsername={this.onInputChangeUsername}
           onInputChangePassword={this.onInputChangePassword}
           onInputChangePasswordConfirm={this.onInputChangePasswordConfirm}
@@ -81,6 +88,13 @@ class BodyContainer extends Component {
           username={this.props.username}
           password={this.props.password}
           passwordConfirm={this.props.passwordConfirm}
+
+          isLogInShowing={this.state.isLogInShowing}
+          toggleLogIn={this.toggleLogIn}
+          logInUsernameChange={this.logInUsernameChange}
+          logInPasswordChange={this.logInPasswordChange}
+          logInUsername={this.state.logInUsername}
+          logInPassword={this.state.logInPassword}
 
         />
         <Header/>
