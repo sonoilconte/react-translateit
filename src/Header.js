@@ -15,7 +15,7 @@ class Header extends Component {
             <li><Link to={"/mytexts"}>Text-feed</Link></li>
           </ul>
           <ul className="right hide-on-med-and-down">
-            <li>Welcome, User</li>
+            <li>Welcome, {this.props.currentUsername}</li>
             <li><Link to={"/myaccount"}>My Account</Link></li>
             <li><Link to={"/"}>Log out</Link></li>
           </ul>

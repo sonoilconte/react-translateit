@@ -22,7 +22,9 @@ class BodyContainer extends Component {
       passwordConfirm: "",
       logInUsername: "",
       logInPassword: "",
-      isLoggedIn: false
+      isLoggedIn: false,
+      currentUserId: "",
+      currentUsername: ""
     }
   }
 
@@ -89,6 +91,8 @@ class BodyContainer extends Component {
       this.toggleLogIn();
       this.setState({
         isLoggedIn: true,
+        currentUserId: res._id,
+        currentUsername: res.username,
         logInUsername: "",
         logInPassword: ""
       });
@@ -122,9 +126,8 @@ class BodyContainer extends Component {
           logInUsername={this.state.logInUsername}
           logInPassword={this.state.logInPassword}
           handleLogInSubmit={this.handleLogInSubmit}
-
         />
-        <Header/>
+        <Header currentUsername={this.state.currentUsername}/>
         <MyTextsContainer/>
         <ShowOneContainer/>
         <MyAccountContainer/>
