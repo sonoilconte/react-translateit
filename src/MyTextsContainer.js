@@ -3,6 +3,7 @@ import $ from 'jquery-ajax';
 import Header from './Header';
 import TextCard from './TextCard';
 import Footer from './Footer';
+let domainName = 'https://frozen-mesa-86739.herokuapp.com' || 'http://localhost:3001';
 
 class MyTextsContainer extends Component {
   constructor(props){
@@ -15,7 +16,7 @@ class MyTextsContainer extends Component {
   loadMyTexts = () => {
     $.ajax({
       method: "GET",
-      url: "https://frozen-mesa-86739.herokuapp.com/users/59ba129bcc1a1d0008df9099/texts"
+      url: domainName + "/users" + "/59ba129bcc1a1d0008df9099" + "/texts"
     })
     .then((res) => { this.setState({myTexts: res}); console.log(res);},
       (err) => { console.log("ERROR", err); }

@@ -12,19 +12,37 @@ class ShowOneContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      textGroup: []
+      currentOrigText: {},
+      textGroup: [],
+      selectedTranslation: {}
     }
+  }
+
+  loadCurrentOrigText = () => {
+    $.ajax({
+      method: "GET",
+      url: domainName + "/texts" + "/59ba129bcc1a1d0008df909e"
+    })
+    .then(
+      (res) => {
+      this.setState({currentOrigText: res});
+      console.log("current original text", res);
+      },
+      (err) => {
+        console.log("ERROR", err);
+      }
+    );
   }
 
   loadTextGroup = () => {
     $.ajax({
       method: "GET",
-      url: domainName + "/texts" + "/59ba129bcc1a1d0008df909c"
+      url: domainName + "/textgroup" + "/59ba129bcc1a1d0008df909e"
     })
     .then(
       (res) => {
-      this.setState({textGroup: res});
-      console.log(res);
+      this.setState({textGroup: res, selectedTranslation: res[0]});
+      console.log("TEXT GROUP", res);
       },
       (err) => {
         console.log("ERROR", err);
@@ -33,16 +51,26 @@ class ShowOneContainer extends Component {
   }
 
   componentDidMount = () => {
+    this.loadCurrentOrigText();
     this.loadTextGroup();
+  }
+
+  handleLangSelect = () => {
+    console.log("clicked on a language");
   }
 
   render(){
     return(
       <div className="container">
         <Header/>
+
         <div className="row">
-          <OrigFullText/>
-          <TranslationFullText/>
+          <OrigFullText currentOrigText={this.state.currentOrigText}/>
+          <TranslationFullText
+            textGroup={this.state.textGroup}
+            selectedTranslation={this.state.selectedTranslation}
+            handleLangSelect={this.handleLangSelect}
+          />
         </div>
         <Videos/>
         <Footer/>
