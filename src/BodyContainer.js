@@ -21,7 +21,8 @@ class BodyContainer extends Component {
       password: "",
       passwordConfirm: "",
       logInUsername: "",
-      logInPassword: ""
+      logInPassword: "",
+      isLoggedIn: false
     }
   }
 
@@ -87,6 +88,7 @@ class BodyContainer extends Component {
       console.log("LOGGING IN USER",res);
       this.toggleLogIn();
       this.setState({
+        isLoggedIn: true,
         logInUsername: "",
         logInPassword: ""
       });
