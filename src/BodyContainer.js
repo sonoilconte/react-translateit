@@ -29,10 +29,9 @@ class BodyContainer extends Component {
       currentTextId: "",
       currentOrigText: {},
       textGroup: [],
-      selectedTranslation: {}
+      selectedTranslation: {},
+      videos: []
     }
-    // this.loadMyTexts = this.loadMyTexts.bind(this);
-    // this.handleTextSelect = this.handleTextSelect.bind(this);
   }
 
   //load all orig texts for user
@@ -75,7 +74,9 @@ class BodyContainer extends Component {
     .then(
       (res) => {
         console.log("Getting current original text object", res);
-      this.setState({currentOrigText: res});
+      this.setState({currentOrigText: res}, () => {
+        this.youtubeRequest();
+      });
       },
       (err) => {
         console.log("ERROR Getting current original text object", err);
@@ -204,7 +205,7 @@ class BodyContainer extends Component {
       method: "GET",
       url: domainName + "/logout"
     }).then((res) => {
-      console.log("LOGGIN OUT USER", res);
+      console.log("LOGGING OUT USER", res);
       this.setState({
         isLoggedIn: false,
         currentUserId: "",
@@ -214,6 +215,26 @@ class BodyContainer extends Component {
       console.log("ERROR LOGGING OUT");
     });
   }
+
+  youtubeRequest = () => {
+    const APIKEY = "AIzaSyA27sOf2x3khyzRj6hmUMMlGJF-7qYEmQM";
+    let data = `q=${this.state.currentOrigText.title}%20${this.state.currentOrigText.author}&type=video&maxResults=5&part=snippet`;
+// `q=du%20dist%20wie%20eine%20blume%20heinrich%20heine&type=video&maxResults=10&part=snippet`
+    let url = `https://www.googleapis.com/youtube/v3/search?key=${APIKEY}&${data}`;
+    console.log("youtube request url ", url);
+    $.ajax({
+      method: "GET",
+      url: url
+    }).then((res) => {
+      console.log("response from youtube", res);
+      this.setState({
+        videos: res
+      });
+    }, (err) => {
+      console.log("error on request to youtube", err)
+    });
+  }
+
 
   render(){
     return(

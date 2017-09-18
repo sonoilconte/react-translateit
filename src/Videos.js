@@ -7,7 +7,7 @@ class Videos extends Component {
       <div className="row">
         <div className="col s12">
           <div className="scroller-outer">
-            <div className="scroller-inner">
+            <div id="videos" className="scroller-inner">
               <div className="video">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/aEzZLXBH3rU?rel=0" frameborder="0" allowfullscreen></iframe>
               </div>
