@@ -3,12 +3,12 @@ import './styles.css'
 
 class TranslationFullText extends Component {
   render(){
-    {/*
-      let languageButtons = this.props.textGroup.map(text => {
-        return(
-          <button type="button" name="button" data-text-id={text._id} onClick={this.props.handleLangSelect}>{text.lang}</button>
-        )
-      })*/}
+
+    let languageButtons = this.props.textGroup.map(text => {
+      return(
+        <button type="button" name="button" data-text-id={text._id} onClick={this.props.handleLangSelect}>{text.lang}</button>
+      )
+    })
 
 
     return(
@@ -25,7 +25,7 @@ class TranslationFullText extends Component {
             <div className="full-translation-text">
               {this.props.selectedTranslation.body}
             </div>
-            {/*languageButtons*/}
+            {languageButtons}
           </div>
 
 

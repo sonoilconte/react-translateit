@@ -94,6 +94,18 @@ class BodyContainer extends Component {
     );
   }
 
+  handleLangSelect = (event) => {
+    event.preventDefault();
+    console.log("HANDLE LANG SELECT");
+    let textId = $(event.target).data("text-id");
+    console.log("text id clicked", textId);
+    let availTranslations = this.state.textGroup;
+    let newSelectedTranslation = availTranslations.filter((text) => {
+      return(text._id === textId);
+    });
+    this.setState({selectedTranslation: newSelectedTranslation[0]});
+  }
+
   // SIGN UP, LOG IN, LOG OUT METHODS
   toggleSignUp = () => {
     this.setState({ isSignUpShowing: !this.state.isSignUpShowing });
@@ -229,6 +241,8 @@ class BodyContainer extends Component {
           isLoggedIn={this.state.isLoggedIn}
           currentOrigText={this.state.currentOrigText}
           selectedTranslation={this.state.selectedTranslation}
+          handleLangSelect={this.handleLangSelect}
+          textGroup={this.state.textGroup}
         />
         <MyAccountContainer isLoggedIn={this.state.isLoggedIn}/>
         <Footer/>

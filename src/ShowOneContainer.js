@@ -19,17 +19,6 @@ class ShowOneContainer extends Component {
   }
 
 
-  handleLangSelect = (event) => {
-    event.preventDefault();
-    let textId = $(event.target).data("text-id");
-    console.log("text id clicked", textId);
-    let availTranslations = this.state.textGroup;
-    let newSelectedTranslation = availTranslations.filter((text) => {
-      return(text._id === textId);
-    });
-    this.setState({selectedTranslation: newSelectedTranslation[0]});
-  }
-
   render(){
     if (this.props.isLoggedIn === false){
       return null;
@@ -41,6 +30,8 @@ class ShowOneContainer extends Component {
           />
           <TranslationFullText
             selectedTranslation={this.props.selectedTranslation}
+            handleLangSelect={this.props.handleLangSelect}
+            textGroup={this.props.textGroup}
           />
         </div>
         <Videos/>
