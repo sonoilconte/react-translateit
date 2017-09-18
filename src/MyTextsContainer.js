@@ -33,7 +33,7 @@ class MyTextsContainer extends Component {
     }
     let textCards = this.state.myTexts.map(text => {
       return(
-        <TextCard text={text}/>
+        <TextCard text={text} loadCurrentText={this.props.loadCurrentText}/>
       )
     });
     return(

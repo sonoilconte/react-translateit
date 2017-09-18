@@ -24,10 +24,16 @@ class BodyContainer extends Component {
       logInPassword: "",
       isLoggedIn: false,
       currentUserId: "",
-      currentUsername: ""
+      currentUsername: "",
+      currentTextId: ""
     }
   }
 
+  loadCurrentText = (event) => {
+    event.preventDefault();
+    let textId = $(event.target).data("text-id");
+    this.setState({ currentTextId: textId});
+  }
   // SIGN UP, LOG IN, LOG OUT METHODS
   toggleSignUp = () => {
     this.setState({ isSignUpShowing: !this.state.isSignUpShowing });
@@ -151,8 +157,14 @@ class BodyContainer extends Component {
           handleLogOut={this.handleLogOut}
           isLoggedIn={this.state.isLoggedIn}
         />
-        <MyTextsContainer isLoggedIn={this.state.isLoggedIn}/>
-        <ShowOneContainer isLoggedIn={this.state.isLoggedIn}/>
+        <MyTextsContainer
+          isLoggedIn={this.state.isLoggedIn}
+          loadCurrentText={this.loadCurrentText}
+        />
+        <ShowOneContainer
+          isLoggedIn={this.state.isLoggedIn}
+          currentTextId={this.state.currentTextId}
+        />
         <MyAccountContainer isLoggedIn={this.state.isLoggedIn}/>
         <Footer/>
       </div>

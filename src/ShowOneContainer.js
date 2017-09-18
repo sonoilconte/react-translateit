@@ -21,15 +21,15 @@ class ShowOneContainer extends Component {
   loadCurrentOrigText = () => {
     $.ajax({
       method: "GET",
-      url: domainName + "/texts" + "/59ba129bcc1a1d0008df909e"
+      url: domainName + "/texts/" + this.props.currentTextId
     })
     .then(
       (res) => {
       this.setState({currentOrigText: res});
-      console.log("current original text", res);
+      console.log("Getting current original text object", res);
       },
       (err) => {
-        console.log("ERROR", err);
+        console.log("ERROR Getting current original text object", err);
       }
     );
   }
@@ -37,7 +37,7 @@ class ShowOneContainer extends Component {
   loadTextGroup = () => {
     $.ajax({
       method: "GET",
-      url: domainName + "/textgroup" + "/59ba129bcc1a1d0008df909e"
+      url: domainName + "/textgroup/" + this.props.currentTextId
     })
     .then(
       (res) => {
@@ -45,14 +45,16 @@ class ShowOneContainer extends Component {
       console.log("TEXT GROUP", res);
       },
       (err) => {
-        console.log("ERROR", err);
+        console.log("ERROR GETTING TEXT GROUP", err);
       }
     );
   }
 
-  componentDidMount = () => {
-    this.loadCurrentOrigText();
-    this.loadTextGroup();
+  componentWillReceiveProps = (nextProps) => {
+    if ((this.props.currentTextId !== "") && (this.props.currentTextId !== nextProps.currentTextId)){
+      this.loadCurrentOrigText();
+      this.loadTextGroup();
+    }
   }
 
   handleLangSelect = (event) => {
