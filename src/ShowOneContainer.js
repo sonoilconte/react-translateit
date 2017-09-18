@@ -29,6 +29,7 @@ class ShowOneContainer extends Component {
           <OrigFullText currentOrigText={this.props.currentOrigText}
           />
           <TranslationFullText
+            currentOrigText={this.props.currentOrigText}
             selectedTranslation={this.props.selectedTranslation}
             handleLangSelect={this.props.handleLangSelect}
             textGroup={this.props.textGroup}

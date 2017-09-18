@@ -3,13 +3,17 @@ import './styles.css'
 
 class TranslationFullText extends Component {
   render(){
+    //if selectedTranslation is undefined, render null
+    if (!this.props.selectedTranslation){
+      return null;
+    }
+    // return null;
 
     let languageButtons = this.props.textGroup.map(text => {
       return(
         <button type="button" name="button" data-text-id={text._id} onClick={this.props.handleLangSelect}>{text.lang}</button>
       )
-    })
-
+    });
 
     return(
       <div>

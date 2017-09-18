@@ -31,6 +31,8 @@ class BodyContainer extends Component {
       textGroup: [],
       selectedTranslation: {}
     }
+    // this.loadMyTexts = this.loadMyTexts.bind(this);
+    // this.handleTextSelect = this.handleTextSelect.bind(this);
   }
 
   //load all orig texts for user
@@ -42,7 +44,11 @@ class BodyContainer extends Component {
       // url: domainName + "/texts/"
     })
     .then((res) => {
-      this.setState({myTexts: res});
+      // filter out texts that are not original language
+      let filteredTexts = res.filter((text) => {
+        return (text.origLang === true)
+      })
+      this.setState({myTexts: filteredTexts});
       console.log("LOADING MY TEXTS", res);},
       (err) => { console.log("ERROR", err); }
     );
@@ -52,10 +58,11 @@ class BodyContainer extends Component {
   handleTextSelect = (event) => {
     event.preventDefault();
     let textId = $(event.target).data("text-id");
-    this.setState({ currentTextId: textId});
+    this.setState({ currentTextId: textId}, () => {
+      this.loadCurrentOrigText();
+      this.loadTextGroup();
+    });
     console.log("TEXTID in state", this.state.currentTextId);
-    this.loadCurrentOrigText();
-    this.loadTextGroup();
   }
 
   loadCurrentOrigText = () => {
@@ -85,8 +92,15 @@ class BodyContainer extends Component {
     })
     .then(
       (res) => {
-      this.setState({textGroup: res, selectedTranslation: res[0]});
-      console.log("TEXT GROUP", res);
+      this.setState({
+        textGroup: res,
+        selectedTranslation: res[0]
+      });
+      if (res[0] === []){
+        console.log("res[0] is [] empty array!")
+      }
+      console.log("TEXT GROUP, res", res);
+      console.log("selected translation", res[0]);
       },
       (err) => {
         console.log("ERROR GETTING TEXT GROUP", err);
@@ -234,8 +248,8 @@ class BodyContainer extends Component {
         <MyTextsContainer
           isLoggedIn={this.state.isLoggedIn}
           myTexts={this.state.myTexts}
-          loadMyTexts={this.loadMyTexts}
-          handleTextSelect={this.handleTextSelect}
+          loadMyTexts={this.loadMyTexts.bind(this)}
+          handleTextSelect={this.handleTextSelect.bind(this)}
         />
         <ShowOneContainer
           isLoggedIn={this.state.isLoggedIn}
