@@ -104,6 +104,22 @@ class BodyContainer extends Component {
       });
     });
   }
+  handleLogOut = (event) => {
+    event.preventDefault();
+    $.ajax({
+      method: "GET",
+      url: domainName + "/logout"
+    }).then((res) => {
+      console.log("LOGGIN OUT USER", res);
+      this.setState({
+        isLoggedIn: false,
+        currentUserId: "",
+        currentUsername: ""
+      });
+    }, (err) => {
+      console.log("ERROR LOGGING OUT");
+    });
+  }
 
   render(){
     return(
@@ -127,7 +143,10 @@ class BodyContainer extends Component {
           logInPassword={this.state.logInPassword}
           handleLogInSubmit={this.handleLogInSubmit}
         />
-        <Header currentUsername={this.state.currentUsername}/>
+        <Header
+          currentUsername={this.state.currentUsername}
+          handleLogOut={this.handleLogOut}
+        />
         <MyTextsContainer/>
         <ShowOneContainer/>
         <MyAccountContainer/>
