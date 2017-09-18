@@ -19,7 +19,7 @@ class TextCard extends Component {
             </div>
             <div className="row">
               <div className="col s12">
-                <button onClick={this.props.loadCurrentText} type="button" data-text-id={this.props.text._id}>Full Text</button>
+                <button onClick={this.props.handleTextSelect} type="button" data-text-id={this.props.text._id}>Full Text</button>
               </div>
             </div>
           </div>

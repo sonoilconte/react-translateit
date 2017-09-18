@@ -26,6 +26,7 @@ class BodyContainer extends Component {
       currentUserId: "",
       currentUsername: "",
       myTexts: [],
+      currentTextId: "",
       currentOrigText: {}
     }
   }
@@ -38,20 +39,42 @@ class BodyContainer extends Component {
       url: domainName + "/users/" + this.state.currentUserId + "/texts"
       // url: domainName + "/texts/"
     })
-    .then((res) => { this.setState({myTexts: res}); console.log(res);},
+    .then((res) => {
+      this.setState({myTexts: res});
+      console.log("LOADING MY TEXTS", res);},
       (err) => { console.log("ERROR", err); }
     );
   }
+
   //handle text select
+  handleTextSelect = (event) => {
+    event.preventDefault();
+    let textId = $(event.target).data("text-id");
+    this.setState({ currentTextId: textId});
+    console.log("TEXTID in state", this.state.currentTextId);
+    this.loadCurrentOrigText();
+  }
+
+  loadCurrentOrigText = () => {
+    let url = domainName + "/texts/" + this.state.currentTextId;
+    console.log("URL is", url);
+    $.ajax({
+      method: "GET",
+      url: url
+    })
+    .then(
+      (res) => {
+        console.log("Getting current original text object", res);
+      this.setState({currentOrigText: res});
+      },
+      (err) => {
+        console.log("ERROR Getting current original text object", err);
+      }
+    );
+  }
 
   //pass down individual text object to ShowOneContainer
 
-  loadCurrentText = (event) => {
-    event.preventDefault();
-    let textId = $(event.target).data("text-id");
-    console.log("TEXTID", textId);
-    this.setState({ currentTextId: textId});
-  }
   // SIGN UP, LOG IN, LOG OUT METHODS
   toggleSignUp = () => {
     this.setState({ isSignUpShowing: !this.state.isSignUpShowing });
@@ -181,11 +204,11 @@ class BodyContainer extends Component {
           isLoggedIn={this.state.isLoggedIn}
           myTexts={this.state.myTexts}
           loadMyTexts={this.loadMyTexts}
-          loadCurrentText={this.loadCurrentText}
+          handleTextSelect={this.handleTextSelect}
         />
         <ShowOneContainer
           isLoggedIn={this.state.isLoggedIn}
-          currentTextId={this.state.currentTextId}
+          currentOrigText={this.state.currentOrigText}
         />
         <MyAccountContainer isLoggedIn={this.state.isLoggedIn}/>
         <Footer/>

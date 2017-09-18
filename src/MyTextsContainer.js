@@ -18,7 +18,7 @@ class MyTextsContainer extends Component {
     }
     let textCards = this.props.myTexts.map(text => {
       return(
-        <TextCard text={text} loadCurrentText={this.props.loadCurrentText}/>
+        <TextCard text={text} handleTextSelect={this.props.handleTextSelect}/>
       )
     });
     return(

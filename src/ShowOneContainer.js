@@ -12,27 +12,27 @@ class ShowOneContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      currentOrigText: {},
-      textGroup: [],
-      selectedTranslation: {}
+      // currentOrigText: {},
+      // textGroup: [],
+      // selectedTranslation: {}
     }
   }
 
-  loadCurrentOrigText = () => {
-    $.ajax({
-      method: "GET",
-      url: domainName + "/texts/" + this.props.currentTextId
-    })
-    .then(
-      (res) => {
-      this.setState({currentOrigText: res});
-      console.log("Getting current original text object", res);
-      },
-      (err) => {
-        console.log("ERROR Getting current original text object", err);
-      }
-    );
-  }
+  // loadCurrentOrigText = () => {
+  //   $.ajax({
+  //     method: "GET",
+  //     url: domainName + "/texts/" + this.props.currentTextId
+  //   })
+  //   .then(
+  //     (res) => {
+  //     this.setState({currentOrigText: res});
+  //     console.log("Getting current original text object", res);
+  //     },
+  //     (err) => {
+  //       console.log("ERROR Getting current original text object", err);
+  //     }
+  //   );
+  // }
 
   loadTextGroup = () => {
     $.ajax({
@@ -75,12 +75,10 @@ class ShowOneContainer extends Component {
     return(
       <div>
         <div className="row">
-          <OrigFullText currentOrigText={this.state.currentOrigText}
+          <OrigFullText currentOrigText={this.props.currentOrigText}
           />
           <TranslationFullText
-            textGroup={this.state.textGroup}
-            selectedTranslation={this.state.selectedTranslation}
-            handleLangSelect={this.handleLangSelect}
+
           />
         </div>
         <Videos/>
