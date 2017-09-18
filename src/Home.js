@@ -15,6 +15,9 @@ class Home extends Component {
   }
 
   render(){
+    if(this.props.isLoggedIn){
+      return null;
+    }
     return(
       <div>
         <div className="row">

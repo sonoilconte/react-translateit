@@ -124,6 +124,7 @@ class BodyContainer extends Component {
   render(){
     return(
       <div className="container">
+
         <Home
           isSignUpShowing={this.state.isSignUpShowing}
           toggleSignUp={this.toggleSignUp}
@@ -142,14 +143,17 @@ class BodyContainer extends Component {
           logInUsername={this.state.logInUsername}
           logInPassword={this.state.logInPassword}
           handleLogInSubmit={this.handleLogInSubmit}
+
+          isLoggedIn={this.state.isLoggedIn}
         />
         <Header
           currentUsername={this.state.currentUsername}
           handleLogOut={this.handleLogOut}
+          isLoggedIn={this.state.isLoggedIn}
         />
-        <MyTextsContainer/>
-        <ShowOneContainer/>
-        <MyAccountContainer/>
+        <MyTextsContainer isLoggedIn={this.state.isLoggedIn}/>
+        <ShowOneContainer isLoggedIn={this.state.isLoggedIn}/>
+        <MyAccountContainer isLoggedIn={this.state.isLoggedIn}/>
         <Footer/>
       </div>
     );

@@ -67,6 +67,9 @@ class ShowOneContainer extends Component {
   }
 
   render(){
+    if (this.props.isLoggedIn === false){
+      return null;
+    }
     return(
       <div>
         <div className="row">
@@ -79,6 +82,7 @@ class ShowOneContainer extends Component {
           />
         </div>
         <Videos/>
+        <hr/>
       </div>
     );
   }

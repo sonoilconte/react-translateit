@@ -28,6 +28,9 @@ class MyTextsContainer extends Component {
   }
 
   render(){
+    if (this.props.isLoggedIn === false){
+      return null;
+    }
     let textCards = this.state.myTexts.map(text => {
       return(
         <TextCard text={text}/>
@@ -50,6 +53,7 @@ class MyTextsContainer extends Component {
         <div className="row">
           {textCards}
         </div>
+        <hr/>
       </div>
     );
   }
