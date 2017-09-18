@@ -25,13 +25,31 @@ class BodyContainer extends Component {
       isLoggedIn: false,
       currentUserId: "",
       currentUsername: "",
-      currentTextId: ""
+      myTexts: [],
+      currentOrigText: {}
     }
   }
+
+  //load all orig texts for user
+
+  loadMyTexts = () => {
+    $.ajax({
+      method: "GET",
+      url: domainName + "/users/" + this.state.currentUserId + "/texts"
+      // url: domainName + "/texts/"
+    })
+    .then((res) => { this.setState({myTexts: res}); console.log(res);},
+      (err) => { console.log("ERROR", err); }
+    );
+  }
+  //handle text select
+
+  //pass down individual text object to ShowOneContainer
 
   loadCurrentText = (event) => {
     event.preventDefault();
     let textId = $(event.target).data("text-id");
+    console.log("TEXTID", textId);
     this.setState({ currentTextId: textId});
   }
   // SIGN UP, LOG IN, LOG OUT METHODS
@@ -102,6 +120,8 @@ class BodyContainer extends Component {
         logInUsername: "",
         logInPassword: ""
       });
+      // LOAD TEXTS AFTER LOGGING IN
+      this.loadMyTexts();
     }, (err) => {
       console.log("ERROR LOGGING IN");
       this.setState({
@@ -159,6 +179,8 @@ class BodyContainer extends Component {
         />
         <MyTextsContainer
           isLoggedIn={this.state.isLoggedIn}
+          myTexts={this.state.myTexts}
+          loadMyTexts={this.loadMyTexts}
           loadCurrentText={this.loadCurrentText}
         />
         <ShowOneContainer

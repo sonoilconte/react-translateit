@@ -9,29 +9,14 @@ class MyTextsContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      myTexts: []
     }
-  }
-
-  loadMyTexts = () => {
-    $.ajax({
-      method: "GET",
-      url: domainName + "/users" + "/59ba129bcc1a1d0008df9099" + "/texts"
-    })
-    .then((res) => { this.setState({myTexts: res}); console.log(res);},
-      (err) => { console.log("ERROR", err); }
-    );
-  }
-
-  componentDidMount = () => {
-    this.loadMyTexts();
   }
 
   render(){
     if (this.props.isLoggedIn === false){
       return null;
     }
-    let textCards = this.state.myTexts.map(text => {
+    let textCards = this.props.myTexts.map(text => {
       return(
         <TextCard text={text} loadCurrentText={this.props.loadCurrentText}/>
       )

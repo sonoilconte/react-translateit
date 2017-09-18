@@ -50,12 +50,12 @@ class ShowOneContainer extends Component {
     );
   }
 
-  componentWillReceiveProps = (nextProps) => {
-    if ((this.props.currentTextId !== "") && (this.props.currentTextId !== nextProps.currentTextId)){
-      this.loadCurrentOrigText();
-      this.loadTextGroup();
-    }
-  }
+  // componentWillReceiveProps = (nextProps) => {
+  //   if ((this.props.currentTextId !== "") && (this.props.currentTextId !== nextProps.currentTextId)){
+  //     this.loadCurrentOrigText();
+  //     this.loadTextGroup();
+  //   }
+  // }
 
   handleLangSelect = (event) => {
     event.preventDefault();
