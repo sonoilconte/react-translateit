@@ -9,9 +9,10 @@ import MyAccountContainer from '../MyAccountContainer'
 
 export default (
   <div>
-    <Route path='/' component={BodyContainer}/>
-    <Route path='/mytexts' component={MyTextsContainer}/>
-    <Route path='/texts/showone' component={ShowOneContainer}/>
-    <Route path='/myaccount' component={MyAccountContainer}/>
+    <Route path='/' component={BodyContainer}>
+      <Route path='/mytexts' component={MyTextsContainer}/>
+      <Route path='/texts/fulltext' component={ShowOneContainer}/>
+      <Route path='/myaccount' component={MyAccountContainer}/>
+    </Route>
   </div>
 );

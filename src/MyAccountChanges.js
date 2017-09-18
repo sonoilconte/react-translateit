@@ -10,14 +10,14 @@ class MyAccountChanges extends Component {
             <div className="card-content">
               <form className="" action="index.html" method="post">
                 <label for="email">Email</label>
-                <input type="text" name="username" value="" placeholder="existing@email.com" required></input>
+                <input type="text" name="username" placeholder="existing@email.com" required></input>
                 <button type="submit" className="btn waves-effect waves-light" name="submit">Update</button>
               </form>
               <form className="" action="index.html" method="post">
                 <label for="password">Password</label>
-                <input type="password" name="password" value="" required></input>
+                <input type="password" name="password" required></input>
                 <label for="password-confirm">Confirm Password</label>
-                <input type="password" name="password-confirm" value="" required></input>
+                <input type="password" name="password-confirm" required></input>
                 <button type="submit" className="btn waves-effect waves-light" name="submit">Update</button>
               </form>
             </div>
