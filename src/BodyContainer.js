@@ -27,7 +27,9 @@ class BodyContainer extends Component {
       currentUsername: "",
       myTexts: [],
       currentTextId: "",
-      currentOrigText: {}
+      currentOrigText: {},
+      textGroup: [],
+      selectedTranslation: {}
     }
   }
 
@@ -53,6 +55,7 @@ class BodyContainer extends Component {
     this.setState({ currentTextId: textId});
     console.log("TEXTID in state", this.state.currentTextId);
     this.loadCurrentOrigText();
+    this.loadTextGroup();
   }
 
   loadCurrentOrigText = () => {
@@ -73,7 +76,23 @@ class BodyContainer extends Component {
     );
   }
 
-  //pass down individual text object to ShowOneContainer
+  loadTextGroup = () => {
+    let url = domainName + "/textgroup/" + this.state.currentTextId;
+    console.log("GETTING TEXT GROUP AT ", url)
+    $.ajax({
+      method: "GET",
+      url: url
+    })
+    .then(
+      (res) => {
+      this.setState({textGroup: res, selectedTranslation: res[0]});
+      console.log("TEXT GROUP", res);
+      },
+      (err) => {
+        console.log("ERROR GETTING TEXT GROUP", err);
+      }
+    );
+  }
 
   // SIGN UP, LOG IN, LOG OUT METHODS
   toggleSignUp = () => {
@@ -209,6 +228,7 @@ class BodyContainer extends Component {
         <ShowOneContainer
           isLoggedIn={this.state.isLoggedIn}
           currentOrigText={this.state.currentOrigText}
+          selectedTranslation={this.state.selectedTranslation}
         />
         <MyAccountContainer isLoggedIn={this.state.isLoggedIn}/>
         <Footer/>

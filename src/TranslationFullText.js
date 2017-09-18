@@ -13,7 +13,7 @@ class TranslationFullText extends Component {
 
     return(
       <div>
-      {/*
+
         <div className="col m6">
             <div className="text-header">
               <h4>{this.props.selectedTranslation.title}</h4>
@@ -25,10 +25,10 @@ class TranslationFullText extends Component {
             <div className="full-translation-text">
               {this.props.selectedTranslation.body}
             </div>
-            {languageButtons}
+            {/*languageButtons*/}
           </div>
 
-        */}
+
         </div>
 
     );

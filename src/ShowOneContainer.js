@@ -18,44 +18,6 @@ class ShowOneContainer extends Component {
     }
   }
 
-  // loadCurrentOrigText = () => {
-  //   $.ajax({
-  //     method: "GET",
-  //     url: domainName + "/texts/" + this.props.currentTextId
-  //   })
-  //   .then(
-  //     (res) => {
-  //     this.setState({currentOrigText: res});
-  //     console.log("Getting current original text object", res);
-  //     },
-  //     (err) => {
-  //       console.log("ERROR Getting current original text object", err);
-  //     }
-  //   );
-  // }
-
-  loadTextGroup = () => {
-    $.ajax({
-      method: "GET",
-      url: domainName + "/textgroup/" + this.props.currentTextId
-    })
-    .then(
-      (res) => {
-      this.setState({textGroup: res, selectedTranslation: res[0]});
-      console.log("TEXT GROUP", res);
-      },
-      (err) => {
-        console.log("ERROR GETTING TEXT GROUP", err);
-      }
-    );
-  }
-
-  // componentWillReceiveProps = (nextProps) => {
-  //   if ((this.props.currentTextId !== "") && (this.props.currentTextId !== nextProps.currentTextId)){
-  //     this.loadCurrentOrigText();
-  //     this.loadTextGroup();
-  //   }
-  // }
 
   handleLangSelect = (event) => {
     event.preventDefault();
@@ -78,7 +40,7 @@ class ShowOneContainer extends Component {
           <OrigFullText currentOrigText={this.props.currentOrigText}
           />
           <TranslationFullText
-
+            selectedTranslation={this.props.selectedTranslation}
           />
         </div>
         <Videos/>
