@@ -12,73 +12,31 @@ class ShowOneContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      currentOrigText: {},
-      textGroup: [],
-      selectedTranslation: {}
+      // currentOrigText: {},
+      // textGroup: [],
+      // selectedTranslation: {}
     }
   }
 
-  loadCurrentOrigText = () => {
-    $.ajax({
-      method: "GET",
-      url: domainName + "/texts" + "/59ba129bcc1a1d0008df909e"
-    })
-    .then(
-      (res) => {
-      this.setState({currentOrigText: res});
-      console.log("current original text", res);
-      },
-      (err) => {
-        console.log("ERROR", err);
-      }
-    );
-  }
-
-  loadTextGroup = () => {
-    $.ajax({
-      method: "GET",
-      url: domainName + "/textgroup" + "/59ba129bcc1a1d0008df909e"
-    })
-    .then(
-      (res) => {
-      this.setState({textGroup: res, selectedTranslation: res[0]});
-      console.log("TEXT GROUP", res);
-      },
-      (err) => {
-        console.log("ERROR", err);
-      }
-    );
-  }
-
-  componentDidMount = () => {
-    this.loadCurrentOrigText();
-    this.loadTextGroup();
-  }
-
-  handleLangSelect = (event) => {
-    event.preventDefault();
-    let textId = $(event.target).data("text-id");
-    console.log("text id clicked", textId);
-    let availTranslations = this.state.textGroup;
-    let newSelectedTranslation = availTranslations.filter((text) => {
-      return(text._id === textId);
-    });
-    this.setState({selectedTranslation: newSelectedTranslation[0]});
-  }
 
   render(){
+    if (this.props.isLoggedIn === false){
+      return null;
+    }
     return(
       <div>
         <div className="row">
-          <OrigFullText currentOrigText={this.state.currentOrigText}
+          <OrigFullText currentOrigText={this.props.currentOrigText}
           />
           <TranslationFullText
-            textGroup={this.state.textGroup}
-            selectedTranslation={this.state.selectedTranslation}
-            handleLangSelect={this.handleLangSelect}
+            currentOrigText={this.props.currentOrigText}
+            selectedTranslation={this.props.selectedTranslation}
+            handleLangSelect={this.props.handleLangSelect}
+            textGroup={this.props.textGroup}
           />
         </div>
         <Videos/>
+        <hr/>
       </div>
     );
   }

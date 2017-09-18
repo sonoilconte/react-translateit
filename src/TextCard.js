@@ -19,10 +19,7 @@ class TextCard extends Component {
             </div>
             <div className="row">
               <div className="col s12">
-                <button type="button" name="button">Full Text</button>
-                <label for="">Translations:</label>
-                <button type="button" name="button">German</button>
-                <button type="button" name="button">French</button>
+                <button onClick={this.props.handleTextSelect} type="button" data-text-id={this.props.text._id}>Full Text</button>
               </div>
             </div>
           </div>
