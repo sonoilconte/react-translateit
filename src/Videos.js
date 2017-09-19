@@ -8,7 +8,7 @@ class Videos extends Component {
     }
 
     let videos = this.props.videos.map((item) => {
-      let url = `http://www.youtube.com/embed/${item.id.videoId}`;
+      let url = `https://www.youtube.com/embed/${item.id.videoId}`;
       return(
         <div className="video">
           <iframe width="560" height="315" src={url} frameborder="0" allowfullscreen></iframe>
