@@ -11,14 +11,7 @@ class ShowOneContainer extends Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      // currentOrigText: {},
-      // textGroup: [],
-      // selectedTranslation: {}
-    }
   }
-
-
   render(){
     if (this.props.isLoggedIn === false){
       return null;
@@ -35,7 +28,7 @@ class ShowOneContainer extends Component {
             textGroup={this.props.textGroup}
           />
         </div>
-        <Videos/>
+        <Videos videos={this.props.videos}/>
         <hr/>
       </div>
     );

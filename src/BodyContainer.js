@@ -219,7 +219,6 @@ class BodyContainer extends Component {
   youtubeRequest = () => {
     const APIKEY = "AIzaSyA27sOf2x3khyzRj6hmUMMlGJF-7qYEmQM";
     let data = `q=${this.state.currentOrigText.title}%20${this.state.currentOrigText.author}&type=video&maxResults=5&part=snippet`;
-// `q=du%20dist%20wie%20eine%20blume%20heinrich%20heine&type=video&maxResults=10&part=snippet`
     let url = `https://www.googleapis.com/youtube/v3/search?key=${APIKEY}&${data}`;
     console.log("youtube request url ", url);
     $.ajax({
@@ -228,8 +227,9 @@ class BodyContainer extends Component {
     }).then((res) => {
       console.log("response from youtube", res);
       this.setState({
-        videos: res
+        videos: res.items
       });
+      console.log("in videos state:", res.items);
     }, (err) => {
       console.log("error on request to youtube", err)
     });
@@ -278,6 +278,7 @@ class BodyContainer extends Component {
           selectedTranslation={this.state.selectedTranslation}
           handleLangSelect={this.handleLangSelect}
           textGroup={this.state.textGroup}
+          videos={this.state.videos}
         />
         <MyAccountContainer isLoggedIn={this.state.isLoggedIn}/>
         <Footer/>
