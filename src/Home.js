@@ -22,14 +22,14 @@ class Home extends Component {
       <div id="landing-page">
         <div className="row">
           <div className="col s12">
-            <h1 className="center-align">TranslateIt</h1>
+            <h1 className="left-align">TranslateIt</h1>
           </div>
         </div>
 
         <div className="row">
           <div className="col s12">
-            <div className="center-align">
-              <a onClick={this.props.toggleSignUp} className="waves-effect waves-light btn">Sign up and start translating</a>
+            <div className="left-align">
+              <a onClick={this.props.toggleSignUp} className="translateit-btn waves-effect waves-light btn">Sign up and start translating</a>
             </div>
           </div>
         </div>
@@ -48,8 +48,8 @@ class Home extends Component {
 
         <div className="row">
           <div className="col s12">
-            <div className="center-align">
-              <a onClick={this.props.toggleLogIn} className="waves-effect waves-light btn">Log in</a>
+            <div className="left-align">
+              <a onClick={this.props.toggleLogIn} className="translateit-btn waves-effect waves-light btn">Log in</a>
             </div>
           </div>
         </div>
@@ -67,8 +67,8 @@ class Home extends Component {
 
         <div className="row">
           <div className="col s12">
-            <div className="center-align">
-              <Link to={"/mytexts"} className="waves-effect waves-light btn">See what humans are translating</Link>
+            <div className="left-align">
+              <a className="translateit-btn waves-effect waves-light btn">See what humans are translating</a>
             </div>
           </div>
         </div>

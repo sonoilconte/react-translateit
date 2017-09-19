@@ -4,10 +4,16 @@
 
 body {
   /*background-color: pink;*/
+  background-color: #05270E;
+  font-family: 'Lato', sans-serif;
+}
+
+h1,h3{
+  color: white;
 }
 
 #landing-page{
-  background-image: url('images/globe-langs.jpg');
+  background-image: url('images/globe-crop.png');
   background-size: 100%;
   background-repeat: no-repeat;
   min-height: 500px;
@@ -15,6 +21,33 @@ body {
 
 #landing-page h1{
   color: white;
+  margin: 100px 0 0 30px;
+}
+
+#landing-page .translateit-btn {
+  margin: 30px 0 0 30px;
+}
+
+.landing-card {
+  margin: 0 0 0 30px;
+}
+
+.translateit-btn {
+  background-color: #1565c0;
+  text-transform: none;
+}
+
+.translateit-btn:hover {
+  background-color: #0d47a1;
+}
+
+.translateit-btn:active {
+  background-color: #0d47a1;
+}
+
+#header{
+  background-color: #05270E;
+  border: 2px solid white;
 }
 
 /* Styles for Video Scroller in ShowOneContainer */
