@@ -6,9 +6,39 @@ body {
   /*background-color: pink;*/
 }
 
+#landing-page{
+  background-image: url('images/globe-langs.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  min-height: 500px;
+}
+
+#landing-page h1{
+  color: white;
+}
+
 /* Styles for Video Scroller in ShowOneContainer */
 .scroller-outer {width: 800px; height: 335px; overflow: scroll;}
 .scroller-inner {width: 10000px}
 .video {float:left;}
 .scroller-outer::-webkit-scrollbar{width: 6px; background-color: #F5F5F5;}
 .scroller-outer::-webkit-scrollbar-thumb{background: #000000;}
+
+#footer {
+  padding: 10px;
+  color: white;
+}
+
+#footer a {
+  color: #7cd5ff;
+  font-weight: bolder;
+}
+
+.footer-image {
+  height: 25px;
+  width: auto;
+}
+
+#github p {
+  margin: 5px 0 0 0;
+}

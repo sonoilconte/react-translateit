@@ -19,7 +19,7 @@ class Home extends Component {
       return null;
     }
     return(
-      <div>
+      <div id="landing-page">
         <div className="row">
           <div className="col s12">
             <h1 className="center-align">TranslateIt</h1>
