@@ -16,8 +16,8 @@ class SignUp extends Component {
 
     return(
       <div className="row">
-        <div className="col m6 offset-m3">
-          <div className="card">
+        <div className="col m6">
+          <div className="card landing-card">
             <div className="card-content">
               <h2>Sign up</h2>
               <form className="" action="index.html" method="post">
@@ -27,7 +27,7 @@ class SignUp extends Component {
                 <input onChange={event => this.props.onInputChangePassword(event)} value={this.props.password} type="password" name="password" required></input>
                 <label for="password-confirm">Confirm Password</label>
                 <input onChange={event => this.props.onInputChangePasswordConfirm(event)} value={this.props.passwordConfirm} type="password" name="password-confirm" required></input>
-                <button onClick={this.props.handleSignUpSubmit} type="submit" className="btn waves-effect waves-light" name="submit">Submit</button>
+                <a onClick={this.props.handleSignUpSubmit} type="submit" className="translateit-btn waves-effect waves-light btn" name="submit">Submit</a>
               </form>
             </div>
           </div>

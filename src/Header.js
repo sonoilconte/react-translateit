@@ -10,7 +10,7 @@ class Header extends Component {
     }
     return(
       <nav>
-        <div className="nav-wrapper grey">
+        <div id="header" className="nav-wrapper">
           <a href="#" data-activates="mobile-menu" className="button-collapse"><i className="material-icons">menu</i></a>
           <ul className="left hide-on-med-and-down">
             <li><a href="#">My Texts</a></li>
