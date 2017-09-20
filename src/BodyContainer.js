@@ -37,20 +37,17 @@ class BodyContainer extends Component {
   //load all orig texts for user
 
   loadMyTexts = () => {
-    $.ajax({
-      method: "GET",
-      url: domainName + "/users/" + this.state.currentUserId + "/texts"
-      // url: domainName + "/texts/"
-    })
-    .then((res) => {
-      // filter out texts that are not original language
-      let filteredTexts = res.filter((text) => {
-        return (text.origLang === true)
-      })
-      this.setState({myTexts: filteredTexts});
-      console.log("LOADING MY TEXTS", res);},
-      (err) => { console.log("ERROR", err); }
-    );
+    // TODO: eventually move all ajax calls to fetch
+    fetch("/users/" + this.state.currentUserId + "/texts")
+      .then((res) => {
+        // filter out texts that are not original language
+        let filteredTexts = res.filter((text) => {
+          return (text.origLang === true)
+        })
+        this.setState({myTexts: filteredTexts});
+        console.log("LOADING MY TEXTS", res);},
+        (err) => { console.log("ERROR", err); }
+      );
   }
 
   //handle text select
@@ -85,6 +82,8 @@ class BodyContainer extends Component {
   }
 
   loadTextGroup = () => {
+    // TODO: consider using string literals
+    // let url = `${domainName}/textgroup/${this.state.currentTextId}`;
     let url = domainName + "/textgroup/" + this.state.currentTextId;
     console.log("GETTING TEXT GROUP AT ", url)
     $.ajax({
@@ -212,6 +211,7 @@ class BodyContainer extends Component {
   }
 
   youtubeRequest = () => {
+    // consider adding this to your ENV enviornment variable.
     const APIKEY = "AIzaSyA27sOf2x3khyzRj6hmUMMlGJF-7qYEmQM";
     let data = `q=${this.state.currentOrigText.title}%20${this.state.currentOrigText.author}&type=video&maxResults=5&part=snippet`;
     let url = `https://www.googleapis.com/youtube/v3/search?key=${APIKEY}&${data}`;
@@ -234,7 +234,7 @@ class BodyContainer extends Component {
   render(){
     return(
       <div className="container">
-
+        // TODO: Check out Redux
         <Home
           isSignUpShowing={this.state.isSignUpShowing}
           toggleSignUp={this.toggleSignUp}
@@ -242,10 +242,10 @@ class BodyContainer extends Component {
           onInputChangePassword={this.onInputChangePassword}
           onInputChangePasswordConfirm={this.onInputChangePasswordConfirm}
           handleSignUpSubmit={this.handleSignUpSubmit}
+          // TODO: see if you can put all of these into an object and pass that object literal down as a prop
           username={this.state.username}
           password={this.state.password}
           passwordConfirm={this.state.passwordConfirm}
-
           isLogInShowing={this.state.isLogInShowing}
           toggleLogIn={this.toggleLogIn}
           logInUsernameChange={this.logInUsernameChange}
