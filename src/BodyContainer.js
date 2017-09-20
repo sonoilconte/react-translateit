@@ -93,15 +93,10 @@ class BodyContainer extends Component {
     })
     .then(
       (res) => {
-      this.setState({
-        textGroup: res,
-        selectedTranslation: res[0]
-      });
-      if (res[0] === []){
-        console.log("res[0] is [] empty array!")
-      }
-      console.log("TEXT GROUP, res", res);
-      console.log("selected translation", res[0]);
+        this.setState({
+          textGroup: res,
+          selectedTranslation: res[0]
+        });
       },
       (err) => {
         console.log("ERROR GETTING TEXT GROUP", err);
