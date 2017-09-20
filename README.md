@@ -24,11 +24,14 @@ YouTube API
 ## Local Installation ##
 
 Clone this repo for the front-end.
-Clone the API repo at https://frozen-mesa-86739.herokuapp.com
+
+Clone the API repo at https://github.com/sonoilconte/translateit-api
+
 In your BASH terminal, go to the front-end directory, run `npm start`, and open `http://localhost:3000/` in your browser.
+
 For the backend, go the the relevant directory, and run `npm install`, then `nodemon` or `node server.js`. The backend will be served at `http://localhost:3001/`.
 
-## User Stories (these will be made more user-friendly)##
+## User Stories (these will be made more user-friendly) ##
 
 Completed-
 user can sign up for account
