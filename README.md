@@ -62,3 +62,10 @@ user can save a text they like to their own account
 ## Bugs ##
 
 There is currently a bug where the selected translation card sometimes disappears after clicking on a "full text" button. It should reappear if you continue clicking other "full text" links.
+
+
+
+// TODO: Redux for easier state management,
+// Folders for containers & models
+// Fetch instad of ajax
+// For music: what about spotify and/or soundcloud api?
