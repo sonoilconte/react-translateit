@@ -6,16 +6,11 @@ import Footer from './Footer';
 let domainName = 'https://frozen-mesa-86739.herokuapp.com' || 'http://localhost:3001';
 
 class MyTextsContainer extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-    }
-  }
 
   render(){
-    if (this.props.isLoggedIn === false){
-      return null;
-    }
+    // if (this.props.isLoggedIn === false){
+    //   return null;
+    // }
     let textCards = this.props.myTexts.map(text => {
       return(
         <TextCard text={text} handleTextSelect={this.props.handleTextSelect}/>

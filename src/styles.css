@@ -1,15 +1,23 @@
+/*
+style plans
+consider a gradient for the background
+find or make a nice vector image of the world and use on the home component
+
+*/
+
+
 .text-header {
   height:100px;
 }
 
 body {
-  /*background-color: pink;*/
-  background-color: #05270E;
+  /*background-color: #05270E;*/
+  background-color: Gainsboro;
   font-family: 'Lato', sans-serif;
 }
 
 h1,h3{
-  color: white;
+  color: Black;
 }
 
 #landing-page{
@@ -46,7 +54,7 @@ h1,h3{
 }
 
 #header{
-  background-color: #05270E;
+  background-color: DimGrey;
   border: 2px solid white;
 }
 

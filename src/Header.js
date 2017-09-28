@@ -5,9 +5,9 @@ import './styles.css';
 class Header extends Component {
 
   render(){
-    if (this.props.isLoggedIn === false){
-      return null;
-    }
+    // if (this.props.isLoggedIn === false){
+    //   return null;
+    // }
     return(
       <nav>
         <div id="header" className="nav-wrapper">

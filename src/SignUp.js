@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
 
 class SignUp extends Component {
-  constructor(){
-    super();
-    this.state = {
-
-    }
-  }
 
   render(){
-
     if(this.props.isSignUpShowing === false){
       return null;
     }
-
     return(
       <div className="row">
         <div className="col m6">

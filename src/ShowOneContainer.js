@@ -9,9 +9,6 @@ let domainName = 'https://frozen-mesa-86739.herokuapp.com' || 'http://localhost:
 
 class ShowOneContainer extends Component {
 
-  constructor(props){
-    super(props);
-  }
   render(){
     if (this.props.isLoggedIn === false){
       return null;

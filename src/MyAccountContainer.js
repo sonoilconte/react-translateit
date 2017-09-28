@@ -5,9 +5,9 @@ import Footer from './Footer';
 
 class MyAccountContainer extends Component {
   render(){
-    if (this.props.isLoggedIn === false){
-      return null;
-    }
+    // if (this.props.isLoggedIn === false){
+    //   return null;
+    // }
     return(
       <div>
         <MyAccountChanges/>

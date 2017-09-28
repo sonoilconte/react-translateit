@@ -3,7 +3,6 @@ import React, {Component} from 'react'
 class TextCard extends Component {
   render(){
     return(
-
       <div className="col l6 m9">
         <div className="card">
           <div className="card-content">
@@ -25,7 +24,6 @@ class TextCard extends Component {
           </div>
         </div>
       </div>
-
     )
   }
 }
