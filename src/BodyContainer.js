@@ -4,6 +4,7 @@ import $ from 'jquery-ajax';
 import Home from './Home';
 import Header from './Header';
 import Footer from './Footer';
+import AllTextsContainer from './AllTextsContainer';
 import MyTextsContainer from './MyTextsContainer';
 import ShowOneContainer from './ShowOneContainer';
 import MyAccountContainer from './MyAccountContainer';
@@ -25,6 +26,7 @@ class BodyContainer extends Component {
       isLoggedIn: false,
       currentUserId: "",
       currentUsername: "",
+      allTexts: [],
       myTexts: [],
       currentTextId: "",
       currentOrigText: {},
@@ -34,13 +36,28 @@ class BodyContainer extends Component {
     }
   }
 
-  //load all orig texts for user
+  //load all texts
+  loadAllTexts = () => {
+    $.ajax({
+      method: "GET",
+      url: domainName + "/texts"
+    })
+    .then((res) => {
+      // filter out texts that are not original language
+      let filteredTexts = res.filter((text) => {
+        return (text.origLang === true)
+      })
+      this.setState({allTexts: filteredTexts});
+      console.log("LOADING MY TEXTS", res);},
+      (err) => { console.log("ERROR", err); }
+    );
+  }
 
+  //load all orig texts for user
   loadMyTexts = () => {
     $.ajax({
       method: "GET",
       url: domainName + "/users/" + this.state.currentUserId + "/texts"
-      // url: domainName + "/texts/"
     })
     .then((res) => {
       // filter out texts that are not original language
@@ -230,6 +247,9 @@ class BodyContainer extends Component {
     });
   }
 
+  componentDidMount = () => {
+    this.loadAllTexts();
+  }
 
   render(){
     return(
@@ -261,11 +281,16 @@ class BodyContainer extends Component {
           handleLogOut={this.handleLogOut}
           isLoggedIn={this.state.isLoggedIn}
         />
+        <AllTextsContainer
+          allTexts={this.state.allTexts}
+          loadAllTexts={this.loadAllTexts}
+          handleTextSelect={this.handleTextSelect}
+        />
         <MyTextsContainer
           isLoggedIn={this.state.isLoggedIn}
           myTexts={this.state.myTexts}
-          loadMyTexts={this.loadMyTexts.bind(this)}
-          handleTextSelect={this.handleTextSelect.bind(this)}
+          loadMyTexts={this.loadMyTexts}
+          handleTextSelect={this.handleTextSelect}
         />
         <ShowOneContainer
           isLoggedIn={this.state.isLoggedIn}
