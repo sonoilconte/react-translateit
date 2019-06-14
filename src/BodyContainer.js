@@ -8,7 +8,8 @@ import MyTextsContainer from './MyTextsContainer';
 import ShowOneContainer from './ShowOneContainer';
 import MyAccountContainer from './MyAccountContainer';
 
-let domainName = 'https://frozen-mesa-86739.herokuapp.com' || 'http://localhost:3001';
+const domainName = 'http://localhost:3001';
+// let domainName = 'https://frozen-mesa-86739.herokuapp.com' || 'http://localhost:3001';
 
 class BodyContainer extends Component {
 
@@ -57,7 +58,7 @@ class BodyContainer extends Component {
   handleTextSelect = (event) => {
     event.preventDefault();
     let textId = $(event.target).data("text-id");
-    this.setState({ currentTextId: textId}, () => {
+    this.setState({ currentTextId: textId }, () => {
       this.loadCurrentOrigText();
       this.loadTextGroup();
     });
@@ -74,7 +75,7 @@ class BodyContainer extends Component {
     .then(
       (res) => {
         console.log("Getting current original text object", res);
-      this.setState({currentOrigText: res}, () => {
+      this.setState({ currentOrigText: res }, () => {
         this.youtubeRequest();
       });
       },
@@ -212,7 +213,7 @@ class BodyContainer extends Component {
   }
 
   youtubeRequest = () => {
-    const APIKEY = "AIzaSyA27sOf2x3khyzRj6hmUMMlGJF-7qYEmQM";
+    const APIKEY = "AIzaSyDaiAdHz9Ey9dz9e4BWaIxBiUORBBK_-Hg";
     let data = `q=${this.state.currentOrigText.title}%20${this.state.currentOrigText.author}&type=video&maxResults=5&part=snippet`;
     let url = `https://www.googleapis.com/youtube/v3/search?key=${APIKEY}&${data}`;
     console.log("youtube request url ", url);

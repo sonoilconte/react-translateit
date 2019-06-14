@@ -62,7 +62,6 @@ class Home extends Component {
           logInUsername={this.props.logInUsername}
           logInPassword={this.props.logInPassword}
           handleLogInSubmit={this.props.handleLogInSubmit}
-
         />
 
         <div className="row">

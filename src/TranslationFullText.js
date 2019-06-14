@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './styles.css'
 
 class TranslationFullText extends Component {
-  render(){
+  render() {
     //if selectedTranslation is undefined, render null
-    if (!this.props.selectedTranslation){
+    if (!this.props.selectedTranslation) {
       return null;
     }
     // return null;
@@ -17,7 +17,6 @@ class TranslationFullText extends Component {
 
     return(
       <div>
-
         <div className="col m6 card">
             <div className="text-header">
               <h4>{this.props.selectedTranslation.title}</h4>
@@ -31,10 +30,7 @@ class TranslationFullText extends Component {
             </div>
             {languageButtons}
           </div>
-
-
-        </div>
-
+      </div>
     );
   }
 }

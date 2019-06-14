@@ -3,7 +3,7 @@ import './styles.css'
 
 class Videos extends Component {
   render(){
-    if(this.props.videos[0]){
+    if(this.props.videos[0]) {
       console.log(this.props.videos[0].id.videoId);
     }
 

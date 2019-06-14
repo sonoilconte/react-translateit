@@ -10,7 +10,7 @@ class SignUp extends Component {
 
   render(){
 
-    if(this.props.isSignUpShowing === false){
+    if(this.props.isSignUpShowing === false) {
       return null;
     }
 

@@ -5,15 +5,13 @@ import OrigFullText from './OrigFullText';
 import TranslationFullText from './TranslationFullText';
 import Videos from './Videos';
 import Footer from './Footer';
-let domainName = 'https://frozen-mesa-86739.herokuapp.com' || 'http://localhost:3001';
 
 class ShowOneContainer extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
   }
-  render(){
-    if (this.props.isLoggedIn === false){
+  render() {
+    if (this.props.isLoggedIn === false) {
       return null;
     }
     return(
