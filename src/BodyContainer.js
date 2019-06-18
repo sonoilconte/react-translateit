@@ -213,7 +213,10 @@ class BodyContainer extends Component {
   }
 
   youtubeRequest = () => {
-    const APIKEY = "AIzaSyDaiAdHz9Ey9dz9e4BWaIxBiUORBBK_-Hg";
+    // Protect API key in devleopment using env variable
+    // Former API keys exposed in history are revoked
+    // TODO: Move YouTube call to backend
+    const APIKEY = process.env.API_KEY;
     let data = `q=${this.state.currentOrigText.title}%20${this.state.currentOrigText.author}&type=video&maxResults=5&part=snippet`;
     let url = `https://www.googleapis.com/youtube/v3/search?key=${APIKEY}&${data}`;
     console.log("youtube request url ", url);
